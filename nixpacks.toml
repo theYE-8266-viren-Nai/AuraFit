@@ -1,8 +1,12 @@
+# Railway PHP 8.3 Configuration
+
 [phases.setup]
-nixPkgs = ['php83', 'php83Packages.composer']
+nixPkgs = ['php83', 'php83Packages.composer', 'nodejs']
 
 [phases.install]
-cmds = ['composer install --no-dev --optimize-autoloader']
+cmds = [
+    'composer install --no-dev --optimize-autoloader --no-interaction'
+]
 
 [phases.build]
 cmds = [
