@@ -1,7 +1,6 @@
-# Railway PHP 8.3 Configuration
-
+# Railway PHP 8.4 Configuration
 [phases.setup]
-nixPkgs = ['php83', 'php83Packages.composer', 'nodejs']
+nixPkgs = ['php84', 'php84Packages.composer', 'nodejs']
 
 [phases.install]
 cmds = [
