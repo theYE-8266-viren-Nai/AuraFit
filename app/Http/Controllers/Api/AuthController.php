@@ -52,6 +52,9 @@ class AuthController extends Controller
 
         $token = $user->createToken('auth_token')->plainTextToken;
 
+        // ✅ FIX: Reload user and load relationships
+        $user = $user->fresh(['member', 'trainer']);
+
         return response()->json([
             'user' => $user,
             'token' => $token,
@@ -74,6 +77,9 @@ class AuthController extends Controller
         }
 
         $token = $user->createToken('auth_token')->plainTextToken;
+
+        // ✅ FIX: Load member and trainer relationships
+        $user->load(['member', 'trainer']);
 
         return response()->json([
             'user' => $user,
